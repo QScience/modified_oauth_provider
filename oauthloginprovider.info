@@ -1,0 +1,17 @@
+; $Id: oauthloginprovider.info,v 1.1 2010/11/17 08:29:01 voxpelli Exp $
+name = OAuth Login Provider
+description = Allows users to log in to other sites through your site using OAuth
+core = 6.x
+package = "OAuth Login"
+
+dependencies[] = services_oauth
+dependencies[] = rest_server
+dependencies[] = autoload
+dependencies[] = services_oop
+
+; Information added by drupal.org packaging script on 2010-11-17
+version = "6.x-1.0"
+core = "6.x"
+project = "oauthloginprovider"
+datestamp = "1289982704"
+

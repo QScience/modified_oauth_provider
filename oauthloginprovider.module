@@ -1,0 +1,41 @@
+<?php
+// $Id: oauthloginprovider.module,v 1.1 2010/11/17 08:29:01 voxpelli Exp $
+
+/**
+ * @file
+ * Main module for OAuth login provider
+ */
+
+/**
+ * Implementation of hook_autoload_info().
+ */
+function oauthloginprovider_autoload_info() {
+  return array(
+    'OAuthLoginResource' => array(
+      'file' => 'OAuthLoginResource.php',
+    ),
+  );
+}
+
+/**
+ * Implementation of hook_ctools_plugin_api().
+ */
+function oauthloginprovider_ctools_plugin_api($module, $api) {
+  if ($module == 'services' && $api == 'services') {
+    return array('version' => 3);
+  }
+  if ($module == 'oauth_common' && $api == 'oauth') {
+    return array('version' => 1);
+  }
+}
+
+/**
+ * Implementation of hook_services_resources().
+ */
+function oauthloginprovider_services_resources() {
+  $res = array(
+    // OAuth login resource
+    'oauthlogin' => ServicesOop::definitionFromClass('OAuthLoginResource'),
+  );
+  return $res;
+}
